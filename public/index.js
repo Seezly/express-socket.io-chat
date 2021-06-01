@@ -51,6 +51,22 @@
     	chat.appendChild(li);
 	});
 
+	//Typing advice logic
+
+	chatMessage.addEventListener('change', () => {
+		socket.emit('typing', username);
+	});
+
+	socket.on('user typing', (data) => {
+		const li = d.createElement("li");
+		li.setAttribute("class", "chat__typing");
+		li.innerHTML = `
+			<span class="chat__typing__user">${data.message}</span>
+		`;
+
+		chat.appendChild(li);
+	})
+
 	//Chat logic
 
 	submit.addEventListener('click', (e) => {
