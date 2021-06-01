@@ -20,7 +20,7 @@ io.on('connection', (socket) => {
 	});
 
 	socket.on('typing', (user) => {
-		socket.emit('user typing', {message: `${user} is typing...`});
+		socket.broadcast.emit('user typing', {message: `${user} is typing...`});
 	});
 
 	socket.on('message', (data) => {

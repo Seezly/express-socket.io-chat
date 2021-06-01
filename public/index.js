@@ -53,18 +53,23 @@
 
 	//Typing advice logic
 
-	chatMessage.addEventListener('change', () => {
+	chatMessage.addEventListener('input', () => {
 		socket.emit('typing', username);
 	});
 
 	socket.on('user typing', (data) => {
+		const lis = d.querySelector(".chat__typing");
 		const li = d.createElement("li");
 		li.setAttribute("class", "chat__typing");
 		li.innerHTML = `
 			<span class="chat__typing__user">${data.message}</span>
 		`;
 
-		chat.appendChild(li);
+		if (lis) {
+			chat.removeChild(lis);
+		}
+
+		chat.insertAdjacentElement('beforeend', li);
 	})
 
 	//Chat logic
@@ -72,12 +77,19 @@
 	submit.addEventListener('click', (e) => {
 		e.preventDefault();
 
+		const typing = d.querySelector('.chat__typing');
 		const li = d.createElement('li');
 		li.setAttribute('class', 'chat__message');
 		li.innerHTML = `
 			<span class="chat__message__author">${username}:</span>
 			<p class="chat__message__msg">${chatMessage.value}</p>
 		`;
+
+		if (typing) {
+			chat.removeChild(typing);
+			// chat.insertBefore(li, typing);
+			console.log('toy aentro')
+		}
 
 		chat.appendChild(li);
 		
@@ -87,13 +99,20 @@
 	});
 
 	socket.on('new message', ({user, msg}) => {
+		const typing = d.querySelector(".chat__typing");
 		const li = d.createElement("li");
 		li.setAttribute("class", "chat__message");
 		li.innerHTML = `
 			<span class="chat__message__author">${user}:</span>
 			<p class="chat__message__msg">${msg}</p>
 		`;
-		
+
+		if (typing) {
+			chat.removeChild(typing);
+			// chat.insertBefore(li, typing);
+			console.log('toy aentro')
+		}
+
 		chat.appendChild(li);
 	});
 	
