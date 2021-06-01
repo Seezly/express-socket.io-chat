@@ -87,7 +87,6 @@
 
 		if (typing) {
 			chat.removeChild(typing);
-			// chat.insertBefore(li, typing);
 			console.log('toy aentro')
 		}
 
@@ -109,7 +108,6 @@
 
 		if (typing) {
 			chat.removeChild(typing);
-			// chat.insertBefore(li, typing);
 			console.log('toy aentro')
 		}
 
