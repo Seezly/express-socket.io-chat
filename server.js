@@ -17,6 +17,7 @@ io.on('connection', (socket) => {
 		
 	socket.on('user', (user) => {
 		socket.emit('new user', {message: `${user} has entered the chat`});
+		socket.broadcast.emit('new user', {message: `${user} has entered the chat`});
 	});
 
 	socket.on('typing', (user) => {

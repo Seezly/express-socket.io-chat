@@ -49,6 +49,7 @@
 		`;
 
     	chat.appendChild(li);
+		console.log('entre');
 	});
 
 	//Typing advice logic
@@ -87,7 +88,6 @@
 
 		if (typing) {
 			chat.removeChild(typing);
-			console.log('toy aentro')
 		}
 
 		chat.appendChild(li);
@@ -108,7 +108,6 @@
 
 		if (typing) {
 			chat.removeChild(typing);
-			console.log('toy aentro')
 		}
 
 		chat.appendChild(li);
