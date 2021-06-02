@@ -49,7 +49,6 @@
 		`;
 
     	chat.appendChild(li);
-		console.log('entre');
 	});
 
 	//Typing advice logic
