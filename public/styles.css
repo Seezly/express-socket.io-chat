@@ -13,7 +13,7 @@ body {
 	height: 100vh;
 	background-color: #121212;
 	color: #f4f4f4;
-	font-family: 'Poppins', 'Helvetica neue', helvetica, monospace;
+	font-family: "Poppins", "Helvetica neue", helvetica, monospace;
 }
 
 h1 {
@@ -21,7 +21,7 @@ h1 {
 }
 
 .chat-form {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	bottom: 0;
 }
